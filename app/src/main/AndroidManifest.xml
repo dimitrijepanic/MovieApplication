@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieApplication">
         <activity
-            android:name=".MainActivity"
+            android:name=".boarding.BoardingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".main.MainActivity"
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter>
