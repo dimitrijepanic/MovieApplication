@@ -17,12 +17,17 @@ class TrendingViewModel : ViewModel() {
     val movies: LiveData<List<MovieProperty>>
         get() = _movies
 
-    public fun getTrendingMovies() {
+    init{
+        getTrendingMovies()
+    }
+
+    private fun getTrendingMovies() {
         viewModelScope.launch {
             try {
                 val page1 = MovieApi.retrofitService.getProperties(API_KEY, 1)
                 val page2 = MovieApi.retrofitService.getProperties(API_KEY, 2)
-                _movies.value = page1.movies + page2.movies
+                val page3 = MovieApi.retrofitService.getProperties(API_KEY, 3)
+                _movies.value = page1.movies + page2.movies + page3.movies
             } catch (e: Exception) {
             }
         }

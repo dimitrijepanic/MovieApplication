@@ -34,7 +34,7 @@ class TrendingFragment : Fragment() {
         val binding = FragmentTrendingBinding.inflate(inflater)
         binding.lifecycleOwner = this
         binding.viewModel = trendingViewModel
-        trendingViewModel.getTrendingMovies();
+        binding.photosGrid.adapter = TrendingGridAdapter()
 
         return binding.root
     }
