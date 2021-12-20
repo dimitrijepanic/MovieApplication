@@ -1,3 +1,8 @@
 package com.example.movieapplication.main.network
 
-data class MovieProperty(val title: String)
+import com.squareup.moshi.Json
+
+data class MovieProperty(
+    @Json(name = "title") val title: String,
+    @Json(name = "poster_path") val imageSrc: String
+)

@@ -13,11 +13,9 @@ import com.example.movieapplication.databinding.FragmentTrendingBinding
 class TrendingFragment : Fragment() {
 
     private lateinit var trendingViewModel: TrendingViewModel
-    private var _binding: FragmentTrendingBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
-    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,20 +31,15 @@ class TrendingFragment : Fragment() {
         trendingViewModel =
             ViewModelProvider(this).get(TrendingViewModel::class.java)
 
-        _binding = FragmentTrendingBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
+        val binding = FragmentTrendingBinding.inflate(inflater)
+        binding.lifecycleOwner = this
+        binding.viewModel = trendingViewModel
         trendingViewModel.getTrendingMovies();
 
-//        val textView: TextView = binding.textHome
-//        trendingViewModel.text.observe(viewLifecycleOwner, Observer {
-//            textView.text = it
-//        })
-        return root
+        return binding.root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
     }
 }
