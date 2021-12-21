@@ -7,21 +7,22 @@ import androidx.lifecycle.viewModelScope
 import com.example.movieapplication.main.network.MovieProperty
 import kotlinx.coroutines.launch
 
-abstract class ViewModelBase : ViewModel() {
+abstract class ViewModelBase<T> : ViewModel() {
 
-    private val _movies = MutableLiveData<List<MovieProperty>>()
-    val movies: LiveData<List<MovieProperty>>
-        get() = _movies
+    private val _properties = MutableLiveData<List<T>>()
+    val properties: LiveData<List<T>>
+        get() = _properties
 
     protected fun getNeededData() {
         viewModelScope.launch {
             try {
                 val localMovies = getSpecificData()
-                _movies.value = localMovies
+                _properties.value = localMovies
             } catch (e: Exception) {
+                print(e.message)
             }
         }
     }
 
-    abstract suspend fun getSpecificData(): List<MovieProperty>;
+    abstract suspend fun getSpecificData(): List<T>;
 }

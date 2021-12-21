@@ -5,7 +5,9 @@ import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.movieapplication.main.network.GenreProperty
 import com.example.movieapplication.main.network.MovieProperty
+import com.example.movieapplication.main.utility.adapter.GenreGridAdapter
 import com.example.movieapplication.main.utility.adapter.MovieGridAdapter
 
 @BindingAdapter("imageUrl")
@@ -19,11 +21,20 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
     }
 }
 
-@BindingAdapter("listData")
-fun bindRecyclerView(
+@BindingAdapter("movieData")
+fun bindMovieData(
     recyclerView: RecyclerView,
     data: List<MovieProperty>?
 ) {
     val adapter = recyclerView.adapter as MovieGridAdapter
+    adapter.submitList(data)
+}
+
+@BindingAdapter("genreData")
+fun bindGenreData(
+    recyclerView: RecyclerView,
+    data: List<GenreProperty>?
+) {
+    val adapter = recyclerView.adapter as GenreGridAdapter
     adapter.submitList(data)
 }

@@ -2,7 +2,6 @@ package com.example.movieapplication.main.network
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
@@ -13,9 +12,6 @@ private const val BASE_URL =
 
 public const val API_KEY =
     "d31ea94a23521e1fe1840b5dbcac61d8"
-
-public const val NUMBER_TO_SHOW =
-    10
 
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
@@ -28,13 +24,16 @@ private val retrofit = Retrofit.Builder()
 
 interface MovieApiService {
     @GET("3/trending/movie/day?")
-    suspend fun getTrendingMovies(@Query("api_key") api_key: String, @Query("page") page: Int):
+    suspend fun getTrendingMovies(@Query("api_key") api_key: String = API_KEY, @Query("page") page: Int):
             MovieListProperty
 
     @GET("3/movie/upcoming?")
-    suspend fun getUpcomingMovies(@Query("api_key") api_key: String, @Query("page") page: Int):
+    suspend fun getUpcomingMovies(@Query("api_key") api_key: String = API_KEY, @Query("page") page: Int):
             MovieListProperty
 
+    @GET("3/genre/movie/list?")
+    suspend fun getAllGenres(@Query("api_key") api_key: String = API_KEY):
+            GenreListProperty
 }
 
 object MovieApi {

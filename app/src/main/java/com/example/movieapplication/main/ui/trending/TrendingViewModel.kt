@@ -5,7 +5,7 @@ import com.example.movieapplication.main.network.MovieApi
 import com.example.movieapplication.main.network.MovieProperty
 import com.example.movieapplication.main.utility.viewmodel.ViewModelBase
 
-class TrendingViewModel : ViewModelBase() {
+class TrendingViewModel : ViewModelBase<MovieProperty>() {
 
     init {
         getNeededData()
@@ -15,7 +15,7 @@ class TrendingViewModel : ViewModelBase() {
         val page1 = MovieApi.retrofitService.getTrendingMovies(API_KEY, 1)
         val page2 = MovieApi.retrofitService.getTrendingMovies(API_KEY, 2)
         val page3 = MovieApi.retrofitService.getTrendingMovies(API_KEY, 3)
-        return page1.movies + page2.movies + page3.movies;
+        return page1.movies + page2.movies + page3.movies
     }
 
 }
