@@ -30,7 +30,7 @@ class TrendingFragment : Fragment() {
             ViewModelProvider(this).get(TrendingViewModel::class.java)
 
         val binding = FragmentTrendingBinding.inflate(inflater)
-        binding.lifecycleOwner = this
+        binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = trendingViewModel
         binding.photosGrid.adapter = MovieGridAdapter()
 

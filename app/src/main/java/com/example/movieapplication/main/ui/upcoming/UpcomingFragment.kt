@@ -22,7 +22,7 @@ class UpcomingFragment : Fragment() {
             ViewModelProvider(this).get(UpcomingViewModel::class.java)
 
         val binding = FragmentUpcomingBinding.inflate(inflater)
-        binding.lifecycleOwner = this
+        binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = upcomingViewModel
         binding.photosGrid.adapter = MovieGridAdapter()
 
