@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.transition.TransitionInflater
 import com.example.movieapplication.R
 import com.example.movieapplication.databinding.FragmentTrendingBinding
+import com.example.movieapplication.main.utility.adapter.MovieClickListener
 import com.example.movieapplication.main.utility.adapter.MovieGridAdapter
 
 class TrendingFragment : Fragment() {
@@ -32,7 +34,9 @@ class TrendingFragment : Fragment() {
         val binding = FragmentTrendingBinding.inflate(inflater)
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = trendingViewModel
-        binding.photosGrid.adapter = MovieGridAdapter()
+        binding.photosGrid.adapter = MovieGridAdapter(MovieClickListener { id ->
+            Toast.makeText(context, "${id}", Toast.LENGTH_SHORT).show()
+        })
 
         return binding.root
     }

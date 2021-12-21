@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashScreenFragment"
-        android:name="com.example.movieapplication.boarding.splashscreen.SplashScreenFragment"
+        android:name="com.example.movieapplication.boarding.ui.splashscreen.SplashScreenFragment"
         android:label="fragment_splash_screen"
         tools:layout="@layout/fragment_splash_screen" />
 </navigation>

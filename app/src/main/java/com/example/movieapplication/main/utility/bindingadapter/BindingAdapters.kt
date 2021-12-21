@@ -1,4 +1,4 @@
-package com.example.movieapplication.main
+package com.example.movieapplication.main.utility.bindingadapter
 
 import android.widget.ImageView
 import androidx.core.net.toUri

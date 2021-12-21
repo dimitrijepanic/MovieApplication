@@ -2,7 +2,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
+        <variable
+            name="clickListener"
+            type="com.example.movieapplication.main.utility.adapter.MovieClickListener" />
         <variable
             name="movie"
             type="com.example.movieapplication.main.network.MovieProperty" />
@@ -10,7 +12,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> clickListener.onClick(movie)}">
 
         <ImageView
             android:id="@+id/movie_image"
