@@ -13,7 +13,7 @@ class GenresViewModel : ViewModelBase<GenreProperty>() {
     }
 
     override suspend fun getSpecificData(): List<GenreProperty> {
-        return MovieApi.retrofitService.getAllGenres(API_KEY)
+        return MovieApi.retrofitService.getAllGenres(API_KEY).genres
     }
 
 }

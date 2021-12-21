@@ -9,16 +9,17 @@ import kotlinx.coroutines.launch
 
 abstract class ViewModelBase<T> : ViewModel() {
 
-    private val _movies = MutableLiveData<List<T>>()
-    val movies: LiveData<List<T>>
-        get() = _movies
+    private val _properties = MutableLiveData<List<T>>()
+    val properties: LiveData<List<T>>
+        get() = _properties
 
     protected fun getNeededData() {
         viewModelScope.launch {
             try {
                 val localMovies = getSpecificData()
-                _movies.value = localMovies
+                _properties.value = localMovies
             } catch (e: Exception) {
+                print(e.message)
             }
         }
     }

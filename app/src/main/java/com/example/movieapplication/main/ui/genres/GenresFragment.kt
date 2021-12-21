@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.movieapplication.databinding.FragmentGenresBinding
+import com.example.movieapplication.main.utility.adapter.GenreGridAdapter
 
 class GenresFragment : Fragment() {
 
@@ -21,8 +22,10 @@ class GenresFragment : Fragment() {
             ViewModelProvider(this).get(GenresViewModel::class.java)
 
         val binding = FragmentGenresBinding.inflate(inflater)
-
+        binding.lifecycleOwner = viewLifecycleOwner
+        binding.viewModel = genresViewModel
+        binding.photosGrid.adapter = GenreGridAdapter()
         return binding.root
     }
-    
+
 }
