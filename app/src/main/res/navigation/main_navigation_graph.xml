@@ -22,4 +22,13 @@
         android:name="com.example.movieapplication.main.ui.upcoming.UpcomingFragment"
         android:label="@string/title_upcoming"
         tools:layout="@layout/fragment_upcoming" />
+    <fragment
+        android:id="@+id/movieDetailsFragment"
+        android:name="com.example.movieapplication.main.ui.details.MovieDetailsFragment"
+        android:label="MovieDetailsFragment" >
+        <argument
+            android:name="movie"
+            app:argType="com.example.movieapplication.main.network.MovieProperty" />
+    </fragment>
+    <action android:id="@+id/action_global_movieDetailsFragment" app:destination="@id/movieDetailsFragment" />
 </navigation>

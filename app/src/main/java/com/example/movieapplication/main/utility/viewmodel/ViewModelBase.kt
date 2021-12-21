@@ -13,6 +13,10 @@ abstract class ViewModelBase<T> : ViewModel() {
     val properties: LiveData<List<T>>
         get() = _properties
 
+    private val _navigateToSelectedProperty = MutableLiveData<MovieProperty?>()
+    val navigateToSelectedProperty: LiveData<MovieProperty?>
+        get() = _navigateToSelectedProperty
+
     protected fun getNeededData() {
         viewModelScope.launch {
             try {
@@ -23,6 +27,15 @@ abstract class ViewModelBase<T> : ViewModel() {
             }
         }
     }
+
+    fun displayMovieDetails(movieProperty: MovieProperty) {
+        _navigateToSelectedProperty.value = movieProperty
+    }
+
+    fun displayMovieDetailsComplete() {
+        _navigateToSelectedProperty.value = null
+    }
+
 
     abstract suspend fun getSpecificData(): List<T>;
 }
