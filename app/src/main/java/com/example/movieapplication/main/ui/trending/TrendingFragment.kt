@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.transition.TransitionInflater
 import com.example.movieapplication.R
 import com.example.movieapplication.databinding.FragmentTrendingBinding
-import com.example.movieapplication.main.adapter.MovieGridAdapter
+import com.example.movieapplication.main.utility.adapter.MovieGridAdapter
 
 class TrendingFragment : Fragment() {
 

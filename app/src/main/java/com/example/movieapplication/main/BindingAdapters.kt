@@ -6,7 +6,7 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.movieapplication.main.network.MovieProperty
-import com.example.movieapplication.main.adapter.MovieGridAdapter
+import com.example.movieapplication.main.utility.adapter.MovieGridAdapter
 
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {

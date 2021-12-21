@@ -14,6 +14,9 @@ private const val BASE_URL =
 public const val API_KEY =
     "d31ea94a23521e1fe1840b5dbcac61d8"
 
+public const val NUMBER_TO_SHOW =
+    10
+
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
     .build()
