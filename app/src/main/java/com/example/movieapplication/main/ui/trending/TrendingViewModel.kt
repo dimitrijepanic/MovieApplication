@@ -23,9 +23,9 @@ class TrendingViewModel : ViewModel() {
     private fun getTrendingMovies() {
         viewModelScope.launch {
             try {
-                val page1 = MovieApi.retrofitService.getProperties(API_KEY, 1)
-                val page2 = MovieApi.retrofitService.getProperties(API_KEY, 2)
-                val page3 = MovieApi.retrofitService.getProperties(API_KEY, 3)
+                val page1 = MovieApi.retrofitService.getTrendingMovies(API_KEY, 1)
+                val page2 = MovieApi.retrofitService.getTrendingMovies(API_KEY, 2)
+                val page3 = MovieApi.retrofitService.getTrendingMovies(API_KEY, 3)
                 _movies.value = page1.movies + page2.movies + page3.movies
             } catch (e: Exception) {
             }

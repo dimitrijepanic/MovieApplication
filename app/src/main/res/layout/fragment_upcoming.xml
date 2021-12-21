@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.movieapplication.main.ui.trending.TrendingViewModel" />
+            type="com.example.movieapplication.main.ui.upcoming.UpcomingViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

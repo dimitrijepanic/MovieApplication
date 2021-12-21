@@ -25,8 +25,13 @@ private val retrofit = Retrofit.Builder()
 
 interface MovieApiService {
     @GET("3/trending/movie/day?")
-    suspend fun getProperties(@Query("api_key") api_key: String, @Query("page") page: Int):
+    suspend fun getTrendingMovies(@Query("api_key") api_key: String, @Query("page") page: Int):
             MovieListProperty
+
+    @GET("3/movie/upcoming?")
+    suspend fun getUpcomingMovies(@Query("api_key") api_key: String, @Query("page") page: Int):
+            MovieListProperty
+
 }
 
 object MovieApi {
