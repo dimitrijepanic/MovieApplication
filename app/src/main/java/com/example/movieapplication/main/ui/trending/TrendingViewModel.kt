@@ -12,12 +12,11 @@ import kotlinx.coroutines.launch
 
 class TrendingViewModel : ViewModel() {
 
-
     private val _movies = MutableLiveData<List<MovieProperty>>()
     val movies: LiveData<List<MovieProperty>>
         get() = _movies
 
-    init{
+    init {
         getTrendingMovies()
     }
 

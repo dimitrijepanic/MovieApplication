@@ -14,9 +14,6 @@ class TrendingFragment : Fragment() {
 
     private lateinit var trendingViewModel: TrendingViewModel
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val inflater = TransitionInflater.from(requireContext())

@@ -11,12 +11,16 @@ import com.example.movieapplication.main.network.MovieProperty
 
 class TrendingGridAdapter : ListAdapter<MovieProperty,
         TrendingGridAdapter.MoviePropertyViewHolder>(DiffCallback) {
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): TrendingGridAdapter.MoviePropertyViewHolder {
-        return MoviePropertyViewHolder(MovieItemViewBinding.inflate(
-            LayoutInflater.from(parent.context)))
+        return MoviePropertyViewHolder(
+            MovieItemViewBinding.inflate(
+                LayoutInflater.from(parent.context)
+            )
+        )
     }
 
     override fun onBindViewHolder(
