@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.transition.TransitionInflater
 import com.example.movieapplication.R
 import com.example.movieapplication.databinding.FragmentTrendingBinding
+import com.example.movieapplication.main.utility.adapter.MovieGridAdapter
 
 class TrendingFragment : Fragment() {
 
@@ -29,9 +30,9 @@ class TrendingFragment : Fragment() {
             ViewModelProvider(this).get(TrendingViewModel::class.java)
 
         val binding = FragmentTrendingBinding.inflate(inflater)
-        binding.lifecycleOwner = this
+        binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = trendingViewModel
-        binding.photosGrid.adapter = TrendingGridAdapter()
+        binding.photosGrid.adapter = MovieGridAdapter()
 
         return binding.root
     }

@@ -1,6 +1,5 @@
-package com.example.movieapplication.main.ui.trending
+package com.example.movieapplication.main.utility.adapter
 
-import android.graphics.Movie
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -9,13 +8,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.movieapplication.databinding.MovieItemViewBinding
 import com.example.movieapplication.main.network.MovieProperty
 
-class TrendingGridAdapter : ListAdapter<MovieProperty,
-        TrendingGridAdapter.MoviePropertyViewHolder>(DiffCallback) {
+class MovieGridAdapter : ListAdapter<MovieProperty,
+        MovieGridAdapter.MoviePropertyViewHolder>(DiffCallback) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): TrendingGridAdapter.MoviePropertyViewHolder {
+    ): MoviePropertyViewHolder {
         return MoviePropertyViewHolder(
             MovieItemViewBinding.inflate(
                 LayoutInflater.from(parent.context)
@@ -24,11 +23,11 @@ class TrendingGridAdapter : ListAdapter<MovieProperty,
     }
 
     override fun onBindViewHolder(
-        holder: TrendingGridAdapter.MoviePropertyViewHolder,
+        holder: MoviePropertyViewHolder,
         position: Int
     ) {
-        val marsProperty = getItem(position)
-        holder.bind(marsProperty)
+        val movieProperty = getItem(position)
+        holder.bind(movieProperty)
     }
 
     class MoviePropertyViewHolder(
