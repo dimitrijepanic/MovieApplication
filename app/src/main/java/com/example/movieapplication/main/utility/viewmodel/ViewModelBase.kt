@@ -7,10 +7,10 @@ import androidx.lifecycle.viewModelScope
 import com.example.movieapplication.main.network.MovieProperty
 import kotlinx.coroutines.launch
 
-abstract class ViewModelBase : ViewModel() {
+abstract class ViewModelBase<T> : ViewModel() {
 
-    private val _movies = MutableLiveData<List<MovieProperty>>()
-    val movies: LiveData<List<MovieProperty>>
+    private val _movies = MutableLiveData<List<T>>()
+    val movies: LiveData<List<T>>
         get() = _movies
 
     protected fun getNeededData() {
@@ -23,5 +23,5 @@ abstract class ViewModelBase : ViewModel() {
         }
     }
 
-    abstract suspend fun getSpecificData(): List<MovieProperty>;
+    abstract suspend fun getSpecificData(): List<T>;
 }

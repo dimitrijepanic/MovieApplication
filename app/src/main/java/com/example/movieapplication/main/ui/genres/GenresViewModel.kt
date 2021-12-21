@@ -1,13 +1,19 @@
 package com.example.movieapplication.main.ui.genres
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.example.movieapplication.main.network.API_KEY
+import com.example.movieapplication.main.network.GenreProperty
+import com.example.movieapplication.main.network.MovieApi
+import com.example.movieapplication.main.network.MovieProperty
+import com.example.movieapplication.main.utility.viewmodel.ViewModelBase
 
-class GenresViewModel : ViewModel() {
+class GenresViewModel : ViewModelBase<GenreProperty>() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
+    init {
+        getNeededData()
     }
-    val text: LiveData<String> = _text
+
+    override suspend fun getSpecificData(): List<GenreProperty> {
+        return MovieApi.retrofitService.getAllGenres(API_KEY)
+    }
+
 }
