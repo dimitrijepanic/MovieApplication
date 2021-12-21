@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"
+    android:id="@+id/main_navigation_graph"
     app:startDestination="@+id/navigation_trending">
 
     <fragment
@@ -12,10 +12,10 @@
         tools:layout="@layout/fragment_trending" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.movieapplication.main.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_genres"
+        android:name="com.example.movieapplication.main.ui.genres.GenresFragment"
+        android:label="@string/title_genres"
+        tools:layout="@layout/fragment_genres" />
 
     <fragment
         android:id="@+id/navigation_upcoming"
