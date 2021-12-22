@@ -46,6 +46,14 @@ interface MovieApiService {
         @Path("movie_id") movie_id: Long,
         @Query("api_key") api_key: String = API_KEY
     ): CastListProperty
+
+    @GET("3/discover/movie?")
+    suspend fun getGenreMovies(
+        @Query("api_key") api_key: String = API_KEY,
+        @Query("page") page: Int,
+        @Query("with_genres") genre_id : Long
+    ): MovieListProperty
+
 }
 
 object MovieApi {

@@ -13,8 +13,8 @@ abstract class ViewModelBase<T> : ViewModel() {
     val properties: LiveData<List<T>>
         get() = _properties
 
-    private val _navigateToSelectedProperty = MutableLiveData<MovieProperty?>()
-    val navigateToSelectedProperty: LiveData<MovieProperty?>
+    private val _navigateToSelectedProperty = MutableLiveData<T?>()
+    val navigateToSelectedProperty: LiveData<T?>
         get() = _navigateToSelectedProperty
 
     protected fun getNeededData() {
@@ -28,8 +28,8 @@ abstract class ViewModelBase<T> : ViewModel() {
         }
     }
 
-    fun displayMovieDetails(movieProperty: MovieProperty) {
-        _navigateToSelectedProperty.value = movieProperty
+    fun displayMovieDetails(property: T) {
+        _navigateToSelectedProperty.value = property
     }
 
     fun displayMovieDetailsComplete() {

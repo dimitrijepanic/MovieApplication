@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.movieapplication.main.ui.genrelist.GenresListViewModel" />
+            type="com.example.movieapplication.main.ui.genrelist.GenreListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
