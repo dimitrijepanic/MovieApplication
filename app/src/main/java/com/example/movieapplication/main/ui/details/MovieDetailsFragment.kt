@@ -6,11 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import com.example.movieapplication.R
 import com.example.movieapplication.databinding.FragmentMovieDetailsBinding
-import com.example.movieapplication.databinding.FragmentUpcomingBinding
-import com.example.movieapplication.main.network.MovieProperty
-import com.example.movieapplication.main.ui.upcoming.UpcomingViewModel
+import com.example.movieapplication.main.utility.adapter.CastGridAdapter
 
 class MovieDetailsFragment : Fragment() {
 
@@ -33,6 +30,7 @@ class MovieDetailsFragment : Fragment() {
         detailsViewModel.setVal(arg)
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = detailsViewModel
+        binding.castGrid.adapter = CastGridAdapter()
 
         return binding.root
     }
