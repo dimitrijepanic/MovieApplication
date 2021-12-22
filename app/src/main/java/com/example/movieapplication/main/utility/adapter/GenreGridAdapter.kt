@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.movieapplication.databinding.GenreItemViewBinding
 import com.example.movieapplication.main.network.GenreProperty
 
-class GenreGridAdapter : ListAdapter<GenreProperty,
+class GenreGridAdapter(private val clickListener: GenreClickListener) : ListAdapter<GenreProperty,
         GenreGridAdapter.GenrePropertyViewHolder>(DiffCallback) {
 
     override fun onCreateViewHolder(
@@ -27,7 +27,7 @@ class GenreGridAdapter : ListAdapter<GenreProperty,
         position: Int
     ) {
         val genrePropery = getItem(position)
-        holder.bind(genrePropery)
+        holder.bind(genrePropery, clickListener)
     }
 
     class GenrePropertyViewHolder(
@@ -36,8 +36,9 @@ class GenreGridAdapter : ListAdapter<GenreProperty,
     ) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(genreProperty: GenreProperty) {
+        fun bind(genreProperty: GenreProperty, clickListener: GenreClickListener) {
             binding.genre = genreProperty
+            binding.clickListener = clickListener
             binding.executePendingBindings()
         }
     }
@@ -51,4 +52,9 @@ class GenreGridAdapter : ListAdapter<GenreProperty,
             return oldItem.id == newItem.id
         }
     }
+}
+
+
+class GenreClickListener(val clickListener: (genreProperty: GenreProperty) -> Unit) {
+    fun onClick(genreProperty: GenreProperty) = clickListener(genreProperty)
 }
