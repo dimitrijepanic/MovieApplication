@@ -1,4 +1,4 @@
-package com.example.movieapplication.boarding.splashscreen
+package com.example.movieapplication.boarding.ui.splashscreen
 
 import android.app.ActivityOptions
 import android.content.Intent

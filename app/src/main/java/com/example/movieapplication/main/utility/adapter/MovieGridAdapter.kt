@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.movieapplication.databinding.MovieItemViewBinding
 import com.example.movieapplication.main.network.MovieProperty
 
-class MovieGridAdapter : ListAdapter<MovieProperty,
+class MovieGridAdapter(private val clickListener: MovieClickListener) : ListAdapter<MovieProperty,
         MovieGridAdapter.MoviePropertyViewHolder>(DiffCallback) {
 
     override fun onCreateViewHolder(
@@ -27,7 +27,7 @@ class MovieGridAdapter : ListAdapter<MovieProperty,
         position: Int
     ) {
         val movieProperty = getItem(position)
-        holder.bind(movieProperty)
+        holder.bind(movieProperty, clickListener)
     }
 
     class MoviePropertyViewHolder(
@@ -36,8 +36,9 @@ class MovieGridAdapter : ListAdapter<MovieProperty,
     ) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(movieProperty: MovieProperty) {
+        fun bind(movieProperty: MovieProperty, clickListener: MovieClickListener) {
             binding.movie = movieProperty
+            binding.clickListener = clickListener
             binding.executePendingBindings()
         }
     }
@@ -51,5 +52,11 @@ class MovieGridAdapter : ListAdapter<MovieProperty,
             return oldItem.id == newItem.id
         }
     }
+
 }
+
+class MovieClickListener(val clickListener: (movie: MovieProperty) -> Unit) {
+    fun onClick(movie: MovieProperty) = clickListener(movie)
+}
+
 

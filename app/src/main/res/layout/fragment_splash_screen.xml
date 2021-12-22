@@ -4,6 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:transitionName=""
-    tools:context=".boarding.splashscreen.SplashScreenFragment"
+    tools:context=".boarding.ui.splashscreen.SplashScreenFragment"
     android:background="@drawable/background"
     />

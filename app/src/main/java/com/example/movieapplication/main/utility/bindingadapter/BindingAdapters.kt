@@ -1,12 +1,14 @@
-package com.example.movieapplication.main
+package com.example.movieapplication.main.utility.bindingadapter
 
 import android.widget.ImageView
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.movieapplication.main.network.ActorProperty
 import com.example.movieapplication.main.network.GenreProperty
 import com.example.movieapplication.main.network.MovieProperty
+import com.example.movieapplication.main.utility.adapter.CastGridAdapter
 import com.example.movieapplication.main.utility.adapter.GenreGridAdapter
 import com.example.movieapplication.main.utility.adapter.MovieGridAdapter
 
@@ -36,5 +38,14 @@ fun bindGenreData(
     data: List<GenreProperty>?
 ) {
     val adapter = recyclerView.adapter as GenreGridAdapter
+    adapter.submitList(data)
+}
+
+@BindingAdapter("castData")
+fun bindCastData(
+    recyclerView: RecyclerView,
+    data: List<ActorProperty>?
+) {
+    val adapter = recyclerView.adapter as CastGridAdapter
     adapter.submitList(data)
 }
