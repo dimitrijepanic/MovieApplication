@@ -2,12 +2,14 @@ package com.example.movieapplication.main
 
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
+import com.example.movieapplication.MainNavigationGraphDirections
 import com.example.movieapplication.R
 import com.example.movieapplication.databinding.ActivityMainBinding
 
@@ -34,7 +36,13 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp()
     }
 
-    override fun onMenuOpened(featureId: Int, menu: Menu): Boolean {
-        return super.onMenuOpened(featureId, menu)
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.navigation_account -> {
+                navController.navigate(MainNavigationGraphDirections.actionGlobalAccountFragment())
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }
