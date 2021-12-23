@@ -1,14 +1,13 @@
 package com.example.movieapplication.main.ui.genres
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.movieapplication.MainNavigationGraphDirections
+import com.example.movieapplication.R
 import com.example.movieapplication.databinding.FragmentGenresBinding
 import com.example.movieapplication.main.ui.genrelist.GenreListFragmentDirections
 import com.example.movieapplication.main.utility.adapter.GenreClickListener
@@ -39,7 +38,14 @@ class GenresFragment : Fragment() {
         binding.photosGrid.adapter = GenreGridAdapter(GenreClickListener {
             genresViewModel.displayMovieDetails(it)
         })
+
+        setHasOptionsMenu(true)
         return binding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.action_bar_menu, menu)
     }
 
 }

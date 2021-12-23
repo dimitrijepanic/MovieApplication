@@ -1,9 +1,7 @@
 package com.example.movieapplication.main.ui.trending
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -36,7 +34,8 @@ class TrendingFragment : Fragment() {
         trendingViewModel.navigateToSelectedProperty.observe(viewLifecycleOwner, Observer {
             it?.let {
                 this.findNavController().navigate(
-                    MainNavigationGraphDirections.actionGlobalMovieDetailsFragment(it))
+                    MainNavigationGraphDirections.actionGlobalMovieDetailsFragment(it)
+                )
                 trendingViewModel.displayMovieDetailsComplete()
             }
         })
@@ -48,7 +47,13 @@ class TrendingFragment : Fragment() {
             trendingViewModel.displayMovieDetails(it)
         })
 
+        setHasOptionsMenu(true)
+
         return binding.root
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.action_bar_menu, menu)
+    }
 }

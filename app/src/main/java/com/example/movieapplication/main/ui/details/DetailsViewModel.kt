@@ -27,7 +27,6 @@ class DetailsViewModel() : ViewModel() {
             try {
                 println(movie.id)
                 val cast = MovieApi.retrofitService.getAllActors(movie.id, API_KEY)
-                println(cast.cast)
                 _properties.value = cast.cast
             } catch (e: Exception) {
                 print(e.message)
