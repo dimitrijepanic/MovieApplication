@@ -6,6 +6,7 @@
         <entry key="app/src/main/res/drawable/outline_list_24.xml" value="0.24427083333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.11458333333333333" />
         <entry key="app/src/main/res/layout/cast_item_view.xml" value="0.20416666666666666" />
+        <entry key="app/src/main/res/layout/fragment_account.xml" value="0.17239583333333333" />
         <entry key="app/src/main/res/layout/fragment_genre_list.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/layout/fragment_genres.xml" value="0.1983695652173913" />
         <entry key="app/src/main/res/layout/fragment_movie_details.xml" value="0.15833333333333333" />

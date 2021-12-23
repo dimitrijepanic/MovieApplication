@@ -22,7 +22,7 @@
             android:paddingStart="15dp"
             android:paddingTop="15dp"
             android:paddingEnd="15dp"
-            app:imageUrl="@{viewModel.movie.imageSrc}"
+            app:imageUrl="@{viewModel.movie.landscapeSrc}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
