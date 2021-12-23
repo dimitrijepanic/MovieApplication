@@ -15,6 +15,16 @@ import com.example.movieapplication.main.utility.adapter.MovieGridAdapter
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {
     imgUrl?.let {
+        val fullImagePath = "https://image.tmdb.org/t/p/w300/$imgUrl"
+        val imgUri = fullImagePath.toUri().buildUpon().scheme("https").build()
+        Glide.with(imgView.context)
+            .load(imgUri)
+            .into(imgView)
+    }
+}
+@BindingAdapter("detailsImageUrl")
+fun bindDetailsImage(imgView: ImageView, imgUrl: String?) {
+    imgUrl?.let {
         val fullImagePath = "https://image.tmdb.org/t/p/w500/$imgUrl"
         val imgUri = fullImagePath.toUri().buildUpon().scheme("https").build()
         Glide.with(imgView.context)
@@ -22,7 +32,6 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
             .into(imgView)
     }
 }
-
 @BindingAdapter("movieData")
 fun bindMovieData(
     recyclerView: RecyclerView,
