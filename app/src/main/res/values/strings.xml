@@ -7,4 +7,8 @@
     <string name="vote_avg_format">Rating: %.2f</string>
     <string name="profile">Account</string>
     <string name="logout"> Log Out</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="birthday">Birthday</string>
 </resources>
