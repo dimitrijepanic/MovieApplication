@@ -43,4 +43,9 @@
             android:name="genre_id"
             app:argType="long" />
     </fragment>
+    <fragment
+        android:id="@+id/navigation_account"
+        android:name="com.example.movieapplication.main.ui.account.AccountFragment"
+        android:label="Account Page"
+        tools:layout="@layout/fragment_account" /><action android:id="@+id/action_global_accountFragment" app:destination="@id/navigation_account"/>
 </navigation>
