@@ -19,31 +19,23 @@ abstract class ViewModelBase<T> : ViewModel() {
     val navigateToSelectedProperty: LiveData<T?>
         get() = _navigateToSelectedProperty
 
-    private val _status = MutableLiveData<MovieApiStatus>()
-
-    val status: LiveData<MovieApiStatus>
-        get() = _status
 
     protected fun getNeededData() {
-        _status.value = MovieApiStatus.LOADING
         viewModelScope.launch {
             try {
                 val localMovies = getSpecificData()
                 _properties.value = localMovies
-                _status.value = MovieApiStatus.DONE
             } catch (e: Exception) {
-                _status.value = MovieApiStatus.ERROR
                 _properties.value = ArrayList()
             }
         }
-        _status
     }
 
-    fun displayMovieDetails(property: T) {
+    fun displayPropertyDetails(property: T) {
         _navigateToSelectedProperty.value = property
     }
 
-    fun displayMovieDetailsComplete() {
+    fun displayPropertyDetailsComplete() {
         _navigateToSelectedProperty.value = null
     }
 

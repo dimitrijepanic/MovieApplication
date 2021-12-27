@@ -22,25 +22,8 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
         val imgUri = fullImagePath.toUri().buildUpon().scheme("https").build()
         Glide.with(imgView.context)
             .load(imgUri)
+            .placeholder(R.drawable.loading_animation)
             .into(imgView)
-    }
-}
-
-@BindingAdapter("movieApiStatus")
-fun bindStatus(statusImageView: ImageView,
-               status: ViewModelBase.MovieApiStatus?) {
-    when (status) {
-        ViewModelBase.MovieApiStatus.LOADING -> {
-            statusImageView.visibility = View.VISIBLE
-            statusImageView.setImageResource(R.drawable.loading_animation)
-        }
-        ViewModelBase.MovieApiStatus.ERROR -> {
-            statusImageView.visibility = View.VISIBLE
-            statusImageView.setImageResource(R.drawable.ic_connection_error)
-        }
-        ViewModelBase.MovieApiStatus.DONE -> {
-            statusImageView.visibility = View.GONE
-        }
     }
 }
 
@@ -51,9 +34,11 @@ fun bindDetailsImage(imgView: ImageView, imgUrl: String?) {
         val imgUri = fullImagePath.toUri().buildUpon().scheme("https").build()
         Glide.with(imgView.context)
             .load(imgUri)
+            .placeholder(R.drawable.loading_animation)
             .into(imgView)
     }
 }
+
 @BindingAdapter("movieData")
 fun bindMovieData(
     recyclerView: RecyclerView,

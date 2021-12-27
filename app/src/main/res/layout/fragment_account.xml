@@ -1,97 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".main.ui.account.AccountFragment">
 
     <ImageView
         android:id="@+id/user_image"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_margin="24dp"
         android:layout_marginBottom="12dp"
-        android:src="@drawable/outline_account_circle_24"/>
+        android:src="@drawable/outline_account_circle_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/username"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:hint="@string/username"
         android:layout_margin="24dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:hint="@string/username"
+        app:endIconDrawable="@drawable/outline_perm_identity_24"
+        app:endIconMode="custom"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/user_image"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/user_image">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="John Doe"
-            />
+            android:imeOptions="actionNext"
+            android:maxLines="1"
+            android:text="John Doe" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/email"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:hint="@string/email"
         android:layout_margin="24dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:hint="@string/email"
+        app:endIconDrawable="@drawable/outline_email_24"
+        app:endIconMode="custom"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/username"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/username">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="johndoe@gmail.com"
-            />
+            android:clickable="false"
+            android:enabled="false"
+            android:focusable="false"
+            android:maxLines="1"
+            android:text="johndoe@gmail.com" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/password"
-        app:endIconMode="password_toggle"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:hint="@string/password"
         android:layout_margin="24dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:hint="@string/password"
+        app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/email"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/email">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="randompass"
+            android:imeOptions="actionNext"
             android:inputType="textPassword"
-            />
+            android:maxLines="1"
+            android:text="randompass" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/birthday"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:hint="@string/birthday"
         android:layout_margin="24dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:hint="@string/birthday"
+        app:endIconDrawable="@drawable/outline_event_24"
+        app:endIconMode="custom"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/password"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/password">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:focusableInTouchMode="false"
+            android:id="@+id/birthday_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="20.10.1999."
-            />
+            android:imeOptions="actionNext"
+            android:maxLines="1"
+            android:text="20.10.1999." />
 
     </com.google.android.material.textfield.TextInputLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

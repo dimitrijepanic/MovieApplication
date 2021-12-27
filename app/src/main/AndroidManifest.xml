@@ -10,15 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieApplication">
         <activity
+            android:noHistory="true"
             android:name=".boarding.BoardingActivity"
             android:exported="true" >
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
             <category android:name="android.intent.category.LAUNCHER" />
+
         </intent-filter>
         </activity>
         <activity
+            android:noHistory="true"
             android:name=".main.MainActivity"
             android:exported="false"
             android:label="@string/app_name">

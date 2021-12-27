@@ -8,13 +8,17 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.movieapplication.MainNavigationGraphDirections
 import com.example.movieapplication.R
+import com.example.movieapplication.databinding.FragmentTrendingBinding
 import com.example.movieapplication.databinding.FragmentUpcomingBinding
+import com.example.movieapplication.main.MainActivity
 import com.example.movieapplication.main.utility.adapter.MovieClickListener
 import com.example.movieapplication.main.utility.adapter.MovieGridAdapter
 
 class UpcomingFragment : Fragment() {
 
     private lateinit var upcomingViewModel: UpcomingViewModel
+    private lateinit var mainActivity: MainActivity
+    private lateinit var binding: FragmentUpcomingBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,33 +26,37 @@ class UpcomingFragment : Fragment() {
     ): View? {
 
         upcomingViewModel =
-            ViewModelProvider(this).get(UpcomingViewModel::class.java)
+            ViewModelProvider(this)[UpcomingViewModel::class.java]
+        binding = FragmentUpcomingBinding.inflate(inflater)
+        mainActivity = requireActivity() as MainActivity
 
-        val binding = FragmentUpcomingBinding.inflate(inflater)
+        setTitleBar()
+        setDataBindingFields()
+        addListeners()
+
+        return binding.root
+    }
+    private fun setTitleBar(){
+        mainActivity.setTitleValue(getString(R.string.upcoming_toolbar_title))
+        mainActivity.clearIcon()
+    }
+
+    private fun setDataBindingFields() {
+        binding.lifecycleOwner = viewLifecycleOwner
+        binding.viewModel = upcomingViewModel
+        binding.photosGrid.adapter = MovieGridAdapter(MovieClickListener {
+            upcomingViewModel.displayPropertyDetails(it)
+        })
+    }
+
+    private fun addListeners() {
         upcomingViewModel.navigateToSelectedProperty.observe(viewLifecycleOwner, Observer {
             it?.let {
                 this.findNavController().navigate(
                     MainNavigationGraphDirections.actionGlobalMovieDetailsFragment(it)
                 )
-                upcomingViewModel.displayMovieDetailsComplete()
+                upcomingViewModel.displayPropertyDetailsComplete()
             }
         })
-
-        binding.lifecycleOwner = viewLifecycleOwner
-        binding.viewModel = upcomingViewModel
-        binding.photosGrid.adapter = MovieGridAdapter(MovieClickListener {
-            upcomingViewModel.displayMovieDetails(it)
-        })
-
-        setHasOptionsMenu(true)
-
-        return binding.root
     }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.action_bar_menu, menu)
-    }
-
-
 }

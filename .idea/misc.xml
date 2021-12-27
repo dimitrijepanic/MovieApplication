@@ -3,15 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../layout/custom_preview.xml" value="0.1734375" />
         <entry key="app/src/main/res/drawable/baseline_star_rate_18.xml" value="0.18854166666666666" />
         <entry key="app/src/main/res/drawable/baseline_star_rate_24.xml" value="0.18854166666666666" />
+        <entry key="app/src/main/res/drawable/circular.xml" value="0.18125" />
         <entry key="app/src/main/res/drawable/ic_connection_error.xml" value="0.18854166666666666" />
+        <entry key="app/src/main/res/drawable/outline_arrow_back_24.xml" value="0.2265625" />
         <entry key="app/src/main/res/drawable/outline_list_24.xml" value="0.24427083333333333" />
         <entry key="app/src/main/res/drawable/round_star_rate_18.xml" value="0.18854166666666666" />
         <entry key="app/src/main/res/drawable/round_star_rate_20.xml" value="0.18854166666666666" />
         <entry key="app/src/main/res/drawable/round_star_rate_24.xml" value="0.18854166666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.11458333333333333" />
         <entry key="app/src/main/res/layout/cast_item_view.xml" value="0.20416666666666666" />
+        <entry key="app/src/main/res/layout/date_picker.xml" value="0.16510416666666666" />
         <entry key="app/src/main/res/layout/fragment_account.xml" value="0.17239583333333333" />
         <entry key="app/src/main/res/layout/fragment_genre_list.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/layout/fragment_genres.xml" value="0.1983695652173913" />

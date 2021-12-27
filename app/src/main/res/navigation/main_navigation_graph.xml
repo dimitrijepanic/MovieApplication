@@ -40,8 +40,8 @@
         android:name="com.example.movieapplication.main.ui.genrelist.GenreListFragment"
         android:label="GenreListFragment" >
         <argument
-            android:name="genre_id"
-            app:argType="long" />
+            android:name="genre"
+            app:argType="com.example.movieapplication.main.network.GenreProperty" />
     </fragment>
     <fragment
         android:id="@+id/navigation_account"
