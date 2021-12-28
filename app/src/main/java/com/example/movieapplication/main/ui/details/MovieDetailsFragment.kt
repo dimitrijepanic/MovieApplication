@@ -59,7 +59,7 @@ class MovieDetailsFragment : Fragment() {
     }
 
     private fun animate() {
-        val animationDuration = 1000
+        val animationDuration = 1500
         val progress = detailsViewModel.movie.value?.vote_average?.toFloat() ?: 0.0F
         binding.progressCircular.setProgressWithAnimation(progress * 10, animationDuration)
     }

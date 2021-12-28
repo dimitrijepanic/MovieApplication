@@ -15,7 +15,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="380dp"
         android:background="@android:color/transparent"
         android:padding="2dp">
 
@@ -25,9 +25,14 @@
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
             android:clickable="true"
+            android:elevation="8dp"
             android:focusable="true"
+            android:innerRadius="0dp"
             android:onClick="@{() -> clickListener.onClick(movie)}"
             android:padding="4dp"
+            android:shape="ring"
+            android:thicknessRatio="1.8"
+            app:cardCornerRadius="15dp"
             app:cardElevation="2dp"
             app:cardUseCompatPadding="true">
 
@@ -44,23 +49,27 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_height="140dp"
                     android:orientation="vertical"
                     android:padding="16dp">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="16sp"
                         android:drawableLeft="@drawable/round_star_rate_24"
-                        android:text="@{@string/vote_avg_format_2(movie.vote_average)}" />
+                        android:text="@{@string/vote_avg_format_2(movie.vote_average)}"
+                        android:textSize="18sp" />
+
                     <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
                         android:paddingStart="5dp"
                         android:paddingTop="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="70dp"
+                        android:paddingEnd="5dp"
+                        android:paddingBottom="5dp"
                         android:text="@{movie.title}"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
 
                 </LinearLayout>

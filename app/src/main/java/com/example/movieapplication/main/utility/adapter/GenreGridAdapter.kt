@@ -3,6 +3,7 @@ package com.example.movieapplication.main.utility.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -46,6 +47,7 @@ class GenreGridAdapter(
             clickListener: GenreClickListener,
             context: Context?
         ) {
+            binding.cardView.animation =  AnimationUtils.loadAnimation(this.itemView.context, R.anim.alpha)
             binding.genre = genreProperty
             context?.let {
                 try {

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:transitionName=""
+    android:backgroundTint="@color/black_2"
     tools:context=".boarding.ui.splashscreen.SplashScreenFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/app_name_padding_top"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="@dimen/app_name_text_size"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -2,9 +2,11 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
+
         <variable
             name="clickListener"
             type="com.example.movieapplication.main.utility.adapter.GenreClickListener" />
+
         <variable
             name="genre"
             type="com.example.movieapplication.main.network.GenreProperty" />
@@ -15,21 +17,21 @@
         android:layout_height="wrap_content">
 
         <com.google.android.material.card.MaterialCardView
-            android:onClick="@{() -> clickListener.onClick(genre)}"
-            android:clickable="true"
-            android:focusable="true"
             android:id="@+id/card_view"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_centerHorizontal="true"
-            android:innerRadius="0dp"
-
-            android:shape="ring"
+            android:layout_margin="20dp"
+            android:clickable="true"
             android:elevation="8dp"
+            android:focusable="true"
+
+            android:innerRadius="0dp"
+            android:onClick="@{() -> clickListener.onClick(genre)}"
+            android:padding="20dp"
+            android:shape="ring"
             android:thicknessRatio="2.1"
             app:cardCornerRadius="200dp"
-            android:padding="20dp"
-            android:layout_margin="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -49,8 +51,8 @@
             android:paddingStart="15dp"
             android:paddingTop="10dp"
             android:paddingEnd="15dp"
-            android:textSize="15sp"
             android:text="@{genre.name}"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
