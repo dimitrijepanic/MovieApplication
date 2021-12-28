@@ -4,11 +4,17 @@
     <string name="title_upcoming">Upcoming</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_trending">Trending</string>
-    <string name="vote_avg_format">Rating: %.2f</string>
+    <string name="vote_avg_format">%.2f</string>
+    <string name="vote_avg_format_2">%.1f </string>
     <string name="profile">Account</string>
     <string name="logout"> Log Out</string>
     <string name="username">Username</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="birthday">Birthday</string>
+    <string name="app_name_text">Filmaniac</string>
+    <string name="default_toolbar_title">Trending</string>
+    <string name="genres_toolbar_title">Genres</string>
+    <string name="upcoming_toolbar_title">Upcoming</string>
+    <string name="account_toolbar_title">Account</string>
 </resources>

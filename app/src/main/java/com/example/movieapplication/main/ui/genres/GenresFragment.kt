@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.movieapplication.MainNavigationGraphDirections
 import com.example.movieapplication.R
 import com.example.movieapplication.databinding.FragmentGenresBinding
+import com.example.movieapplication.main.MainActivity
 import com.example.movieapplication.main.ui.genrelist.GenreListFragmentDirections
 import com.example.movieapplication.main.utility.adapter.GenreClickListener
 import com.example.movieapplication.main.utility.adapter.GenreGridAdapter
@@ -16,6 +17,8 @@ import com.example.movieapplication.main.utility.adapter.GenreGridAdapter
 class GenresFragment : Fragment() {
 
     private lateinit var genresViewModel: GenresViewModel
+    private lateinit var binding: FragmentGenresBinding
+    private lateinit var mainActivity: MainActivity
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,29 +26,39 @@ class GenresFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         genresViewModel =
-            ViewModelProvider(this).get(GenresViewModel::class.java)
-        genresViewModel.navigateToSelectedProperty.observe(viewLifecycleOwner, Observer {
-            it?.let {
-                this.findNavController().navigate(
-                    GenresFragmentDirections.actionNavigationGenresToGenreListFragment2(it.id)
-                )
-                genresViewModel.displayMovieDetailsComplete()
-            }
-        })
-        val binding = FragmentGenresBinding.inflate(inflater)
-        binding.lifecycleOwner = viewLifecycleOwner
-        binding.viewModel = genresViewModel
-        binding.photosGrid.adapter = GenreGridAdapter(GenreClickListener {
-            genresViewModel.displayMovieDetails(it)
-        })
+            ViewModelProvider(this)[GenresViewModel::class.java]
 
-        setHasOptionsMenu(true)
+        binding = FragmentGenresBinding.inflate(inflater)
+        mainActivity = requireActivity() as MainActivity
+        setTitleBar()
+        addListeners()
+        setDataBinding()
+
         return binding.root
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.action_bar_menu, menu)
+    private fun setTitleBar(){
+        mainActivity.clearIcon()
+        mainActivity.setTitleValue(getString(R.string.genres_toolbar_title))
+    }
+
+    private fun setDataBinding() {
+        binding.lifecycleOwner = viewLifecycleOwner
+        binding.viewModel = genresViewModel
+        binding.photosGrid.adapter = GenreGridAdapter(GenreClickListener {
+            genresViewModel.displayPropertyDetails(it)
+        }, context)
+    }
+
+    private fun addListeners() {
+        genresViewModel.navigateToSelectedProperty.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                this.findNavController().navigate(
+                    GenresFragmentDirections.actionNavigationGenresToGenreListFragment2(it)
+                )
+                genresViewModel.displayPropertyDetailsComplete()
+            }
+        })
     }
 
 }

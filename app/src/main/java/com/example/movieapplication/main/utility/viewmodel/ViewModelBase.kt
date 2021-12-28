@@ -9,6 +9,8 @@ import kotlinx.coroutines.launch
 
 abstract class ViewModelBase<T> : ViewModel() {
 
+    enum class MovieApiStatus { LOADING, ERROR, DONE }
+
     private val _properties = MutableLiveData<List<T>>()
     val properties: LiveData<List<T>>
         get() = _properties
@@ -17,22 +19,23 @@ abstract class ViewModelBase<T> : ViewModel() {
     val navigateToSelectedProperty: LiveData<T?>
         get() = _navigateToSelectedProperty
 
+
     protected fun getNeededData() {
         viewModelScope.launch {
             try {
                 val localMovies = getSpecificData()
                 _properties.value = localMovies
             } catch (e: Exception) {
-                print(e.message)
+                _properties.value = ArrayList()
             }
         }
     }
 
-    fun displayMovieDetails(property: T) {
+    fun displayPropertyDetails(property: T) {
         _navigateToSelectedProperty.value = property
     }
 
-    fun displayMovieDetailsComplete() {
+    fun displayPropertyDetailsComplete() {
         _navigateToSelectedProperty.value = null
     }
 

@@ -11,7 +11,7 @@ import com.example.movieapplication.main.network.MovieApi
 import com.example.movieapplication.main.network.MovieProperty
 import kotlinx.coroutines.launch
 
-class DetailsViewModel() : ViewModel() {
+class DetailsViewModel(private val movieProperty: MovieProperty) : ViewModel() {
 
     private val _properties = MutableLiveData<List<ActorProperty>>()
     val properties: LiveData<List<ActorProperty>>
@@ -21,16 +21,21 @@ class DetailsViewModel() : ViewModel() {
     val movie: LiveData<MovieProperty>
         get() = _movie
 
-    fun setVal(movie: MovieProperty) {
-        _movie.value = movie
+    init {
+        getNeededData()
+    }
+
+    private fun getNeededData() {
+        _movie.value = movieProperty
         viewModelScope.launch {
             try {
-                println(movie.id)
-                val cast = MovieApi.retrofitService.getAllActors(movie.id, API_KEY)
+                val cast = MovieApi.retrofitService.getAllActors(movieProperty.id, API_KEY)
                 _properties.value = cast.cast
             } catch (e: Exception) {
                 print(e.message)
             }
         }
     }
+
+
 }
