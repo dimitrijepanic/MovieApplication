@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="com.example.movieapplication.main.utility.adapter.GenreClickListener" />
+
+        <variable
+            name="genre"
+            type="com.example.movieapplication.main.network.GenreProperty" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_view"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="20dp"
+            android:clickable="true"
+            android:elevation="8dp"
+            android:focusable="true"
+
+            android:innerRadius="0dp"
+            android:onClick="@{() -> clickListener.onClick(genre)}"
+            android:padding="20dp"
+            android:shape="ring"
+            android:thicknessRatio="2.1"
+            app:cardCornerRadius="200dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/genre_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="20dp" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/genre_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingStart="15dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="15dp"
+            android:text="@{genre.name}"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_view" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
